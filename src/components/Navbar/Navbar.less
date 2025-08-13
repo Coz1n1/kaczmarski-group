@@ -1,0 +1,58 @@
+@import "../../styles/variables.less";
+@import "../../styles/mixins.less";
+
+.navbar {
+  background-color: @color-hero-bg;
+  color: @color-white;
+  padding: 45px 100px;
+}
+
+.navbar__content {
+  max-width: 1180px;
+}
+
+.navbar__title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.navbar__search {
+  display: flex;
+}
+
+.navbar__search-input {
+  height: 44px;
+  width: 450px;
+  border: none;
+  padding: 0px 10px;
+  color: #434a58;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.navbar__search-button {
+  height: 44px;
+  width: 160px;
+  border: none;
+  background-color: @color-cta;
+  color: @color-white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media @bp-mobile {
+  .navbar {
+    padding: 10px 16px;
+  }
+
+  .navbar__search-input {
+    height: 33px;
+  }
+
+  .navbar__search-button {
+    height: 33px;
+  }
+}

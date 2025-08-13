@@ -1,0 +1,125 @@
+@import "../../styles/variables.less";
+@import "../../styles/mixins.less";
+
+.debts-table {
+  width: 100%;
+  padding: 8px 100px;
+  overflow-x: auto;
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    color: @color-text;
+    font-size: @font-size-16;
+  }
+
+  &__table th {
+    text-align: left;
+    font-weight: 600;
+    font-size: @font-size-12;
+    letter-spacing: 0.03em;
+    color: @color-muted;
+    padding: 12px 8px;
+    border-bottom: 1px solid @color-border;
+    cursor: pointer;
+    position: relative;
+  }
+
+  &__table th svg {
+    position: absolute;
+    top: 48%;
+    transform: translateY(-50%);
+  }
+
+  &__body td {
+    padding: 16px 8px;
+    font-weight: 600;
+    border-bottom: 1px solid @color-border;
+    vertical-align: middle;
+    color: @color-primary-td;
+  }
+
+  &__body tr td:nth-child(1) {
+    font-weight: 600;
+  }
+
+  &__head th.is-active {
+    color: @color-primary;
+  }
+
+  &__head {
+    text-align: left;
+  }
+
+  &__body tr:hover {
+    background: @color-row-hover;
+  }
+
+  @media @bp-mobile {
+    padding: 12px 16px;
+    &__head th {
+      font-size: 11px;
+      padding: 10px 6px;
+    }
+    &__body td {
+      padding: 12px 6px;
+    }
+
+    &__table {
+      font-size: @font-size-12;
+    }
+  }
+}
+
+.debts-table__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.debts-table__pagebtn {
+  padding: 6px 10px;
+  border: 1px solid @color-border;
+  background: @color-primary-td;
+  color: white;
+  border-radius: 8px;
+  min-width: 36px;
+  min-height: 34px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.06s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.debts-table__pagebtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.debts-table__pagebtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: @color-muted;
+}
+
+.debts-table__pagenum.is-active {
+  background: @color-primary-td;
+  color: @color-white;
+  border-color: @color-primary-td;
+  cursor: default;
+}
+
+.debts-table__pagenum {
+  padding: 6px 10px;
+  border: 1px solid @color-border;
+  background: @color-white;
+  color: @color-primary-td;
+  border-radius: 8px;
+  min-width: 36px;
+  min-height: 34px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.06s ease, box-shadow 0.12s ease, background 0.12s ease;
+}

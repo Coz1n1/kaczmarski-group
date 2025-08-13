@@ -1,0 +1,53 @@
+@import "../../styles/variables.less";
+@import "../../styles/mixins.less";
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: @color-primary-td;
+  color: @color-white;
+  text-align: center;
+}
+
+.loader--fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.loader__spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid fade(@color-white, 85%);
+  border-top-color: @color-white;
+  animation: loader-spin 0.9s linear infinite;
+  --_m: conic-gradient(#0000 35%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+}
+
+.loader__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader__spinner {
+    animation: none;
+    border: 3px solid @color-white;
+  }
+}
